@@ -1,0 +1,15 @@
+/**
+ * Automatically sorts the 1st column (not the header row) Ascending.
+ */
+function onEdit(event){
+  var sheet = event.source.getActiveSheet();
+  var editedCell = sheet.getActiveCell();
+
+  var columnToSortBy = 1;
+  var tableRange = "A5:G5000"; // What to sort.
+
+  if(editedCell.getColumn() == columnToSortBy){   
+    var range = sheet.getRange(tableRange);
+    range.sort( { column : columnToSortBy, ascending: true } );
+  }
+}
